@@ -21,16 +21,17 @@ defineComponent({
 })
 
 
-let display: Ref<string> = ref('')
+let display = ref('')
 
-let calculator: CalculatorModel = new CalculatorModel()
+let calculator = ref<CalculatorModel>(new CalculatorModel)
+//let calculator: CalculatorModel = new CalculatorModel()
 
 const handleClick = (myValue: number | string) => {
     // display.value += myValue.toString()
     if(typeof myValue === 'number'){
-        display.value = calculator.hanldeNumber(myValue)
+        display.value = calculator.value.hanldeNumber(myValue)
     }else if (typeof myValue === 'string'){
-        display.value = calculator.hanldeSymbol(myValue )
+        display.value = calculator.value.hanldeSymbol(myValue )
     }
 }
 

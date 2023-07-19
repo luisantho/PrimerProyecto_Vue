@@ -6,7 +6,7 @@
 <script lang="ts">
 
 import {defineComponent} from 'vue'
-import ListaCompra from '@/components/Lista/ListaCompra.vue'
+import ListaCompra from '@/components/Lista/ListaTareas.vue'
 
 export default defineComponent ({
   name: 'AboutView',
