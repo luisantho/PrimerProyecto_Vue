@@ -1,21 +1,27 @@
 <template>
     <div class="buscador">
         <input type="text" placeholder="Nombre de la tarea" v-model="nombreBuscar">
-        <button type="button" class="btn btn-dark" @click="buscarTarea">Buscar</button>
+        <button type="button" class="btn btn-dark">Buscar</button>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item" ></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item" ></li>
+            </ul>
+
+        </div>
 
     </div>
 
 </template>
 <script setup lang="ts">
-import {ref,defineEmits} from 'vue'
+import { Tarea } from '@/models/TareaModel';
+import {ref,defineProps} from 'vue'
 
-let nombreBuscar = ref('')
 
-const emitBuscar = defineEmits(['emit'])
-
-const buscarTarea = () =>{
-    emitBuscar('emit',nombreBuscar)
-}
 
 
 </script>

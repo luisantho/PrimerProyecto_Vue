@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <ListaCompra></ListaCompra>
+      <ListaCompra></ListaCompra>
   </div>
 </template>
 <script lang="ts">
