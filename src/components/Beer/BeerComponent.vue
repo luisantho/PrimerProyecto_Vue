@@ -13,6 +13,7 @@
             <h3>{{ result.code }}</h3>
             <h3>{{ result.msg }}</h3>
         </div>
+
     </div>
 
 </template>
@@ -22,9 +23,13 @@ import {ErrorBeer,Beer,getBeer} from '@/models/BeerModel'
 
 const result = ref<Beer|ErrorBeer>()
 
-result.value =  await getBeer()
- 
+const fetchData = async ()  => {
+    result.value = await getBeer()
+}
 
+
+
+ 
 </script>
 <style scoped>
 

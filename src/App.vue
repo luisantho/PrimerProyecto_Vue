@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">Calculadora</router-link> |
     <router-link to="/about">Lista</router-link>  |
-    <router-link to="/api">Nasa Api</router-link>
+    <router-link to="/api">Api</router-link>
 
   </nav>
   <router-view/>

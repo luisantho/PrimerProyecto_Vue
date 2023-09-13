@@ -44,7 +44,7 @@ export class Beer {
     }
 
     set description(value: string) {
-        this.description = value
+        this._description = value
     }
 
     get image_url(): string {
@@ -92,11 +92,12 @@ export class ErrorBeer {
     }
 }
 
-    
+// async: no bloquea la ejecución del programa mientras realiza una tarea que puede llevar tiempo
 export const getBeer = async (): Promise <Beer | ErrorBeer> => {
 
-    let url = 'https://api.punkapi.com/v2/beers?page=2&per_page=80'
+    const url = 'https://api.punkapi.com/v2/beers?page=2&per_page=80'
 
+    //await: pausa la ejecución de la función hasta que se resuelva la promesa
     const response = await fetch(url)
     if (!response.ok) {
         console.error('Error' + JSON.stringify(response));
@@ -116,6 +117,7 @@ export const getBeer = async (): Promise <Beer | ErrorBeer> => {
         
     }
     const json = await response.json()
+    
     return new Beer(json)
 
 }
