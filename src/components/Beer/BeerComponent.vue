@@ -1,36 +1,32 @@
 <template>
     <div class="container">
-        <h1>Welcome to Punk Api </h1>
+        <div class="row justify-content-center align-items-center g-2">
+            <div class="col-xs-12 col-md-6 col-lg-4" v-for="(beer, id) in beers" :key="id">
+                <div class="card h-100">
+                    <img class="card-img-top mx-auto mt-3" :src="beer.imageUrl" alt="Title">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ beer.name }}</h4>
+                        <p class="card-text">{{ beer.tagline }}</p>
+                        <p class="card-text">{{ beer.abv }}</p>
+                    </div>
+                </div>
+            </div>
 
-        <div v-if="(result instanceof Beer)">
-            <h3>{{ result.id }}</h3>
-            <h3>{{ result.name }}</h3>
-            <img :src="result.image_url">
-            <h3>{{ result.description }}</h3>
         </div>
-
-        <div v-if="(result instanceof ErrorBeer)">
-            <h3>{{ result.code }}</h3>
-            <h3>{{ result.msg }}</h3>
-        </div>
-
     </div>
-
 </template>
-<script setup lang="ts">
-import {ref} from 'vue'
-import {ErrorBeer,Beer,getBeer} from '@/models/BeerModel'
+<script setup lang="ts" >
+import { ref, defineComponent, watch } from 'vue'
+import { Beer,getBeers } from '@/models/BeerModel'
 
-const result = ref<Beer|ErrorBeer>()
+const beers = ref<Beer[]>()
 
-const fetchData = async ()  => {
-    result.value = await getBeer()
-}
+beers.value = await getBeers();
 
-
-
- 
 </script>
-<style scoped>
 
+<style scoped>
+img {
+    width: 60px;
+}
 </style>
